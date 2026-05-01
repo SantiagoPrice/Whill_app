@@ -1,0 +1,12 @@
+{
+  "name": "VoiceBeam",
+  "description": "Voice recorder that beams recordings to linked Bluetooth devices.",
+  "requestFramePermissions": [
+    "microphone",
+    "bluetooth"
+  ],
+  "majorCapabilities": [
+    "voice_recording",
+    "bluetooth_connectivity"
+  ]
+}

@@ -1,0 +1,45 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+}
+
+@layer base {
+  :root {
+    --bg-hardware: #0f1012;
+    --card-matte: #1c1e22;
+    --accent-record: #ff4444;
+    --accent-connect: #00ff88;
+    --accent-beam: #00aaff;
+    --text-primary: #ffffff;
+    --text-secondary: #8e9299;
+  }
+
+  body {
+    background-color: var(--bg-hardware);
+    color: var(--text-primary);
+    font-family: var(--font-sans);
+  }
+}
+
+.glass-morphism {
+  background: rgba(28, 30, 34, 0.7);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.recording-pulse {
+  animation: pulse 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.7;
+    transform: scale(1.05);
+  }
+}

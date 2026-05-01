@@ -142,7 +142,19 @@ export default function App() {
       }, 100);
 
     } catch (err) {
-      setError("Failed to access microphone. Please check permissions.");
+      if (err instanceof DOMException) {
+        if (err.name === 'NotAllowedError') {
+          setError("Microphone permission denied. Please allow mic access in your browser settings.");
+        } else if (err.name === 'NotFoundError') {
+          setError("No microphone found. Please connect a microphone and try again.");
+        } else if (err.name === 'NotReadableError') {
+          setError("Microphone is in use by another app.");
+        } else {
+          setError(`Microphone error: ${err.message}`);
+        }
+      } else {
+        setError("Failed to access microphone. Make sure the page is served over HTTPS.");
+      }
       console.error(err);
     }
   };
